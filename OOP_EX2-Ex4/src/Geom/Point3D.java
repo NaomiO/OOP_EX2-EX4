@@ -6,24 +6,31 @@ public class Point3D implements Geom_element, Serializable
 	/**
 	 * This class represents a 3D point in space.
 	 */
+	//static public int  EARTH_RADIUS = 6371000;
+
 	private static final long serialVersionUID = 1L;
+	static public int EARTH_RADIUS = 6371000;
 	private double _x,_y,_z;
 
+	//creates coordinates for a gps/polar point
 	public Point3D(double x,double y,double z) 
 	{
-		_x=x;
-		_y=y;
-		_z=z;
+		_x=x;   //latitude
+		_y=y;	//longitude
+		_z=z;	//height
 	}
-
+	//creates a gps point 
 	public Point3D(Point3D p) 
 	{
 		_x=p.x();
 		_y=p.y();
 		_z=p.z();
 	}
-	public Point3D(double x,double y) 
-	{this(x,y,0);}
+	//default constructor for point on the ground 
+	public Point3D(double x,double y) {
+		this(x,y,0);           }
+	
+	//creates a gps point from a string holding the coordinates
 	public Point3D(String s) {
 		String[] a = s.split(",");
 		_x = Double.parseDouble(a[0]);
@@ -35,18 +42,32 @@ public class Point3D implements Geom_element, Serializable
 	///////////////////////////////////////////////////////////////////////////
 
 	
-	public double x() {return _x;}
-	public double y() {return _y;}
-	public double z() {return _z;}
-	public int ix() {return (int)_x;}
-	public int iy() {return (int)_y;}
-	public int iz() {return (int)_z;}
+	public double x() {
+		return _x; }
+	
+	public double y() {
+		return _y; }
+	
+	public double z() {
+		return _z; }
+	
+	public int ix() {
+		return (int)_x; }
+	
+	public int iy() {
+		return (int)_y; }
+	
+	public int iz() {
+		return (int)_z; }
 		
-	public void add(Point3D p) { add(p._x,p._y,p._z);}
+	public void add(Point3D p) { 
+		add(p._x,p._y,p._z);  }
+	
 	public void add(double dx, double dy, double dz) {
 			_x+=dx;_y+=dy;_z+=dz;
 		}
-	public void add(double x, double y){this.add(x,y,0);}
+	public void add(double x, double y){
+		this.add(x,y,0);		}
 
 	public String toString() 
 	{
@@ -55,8 +76,10 @@ public class Point3D implements Geom_element, Serializable
 	public double distance2D(Point3D p2) { 
 		return this.distance3D(p2.x(), p2.y(), this.z());
 	}
+	
 	public double distance3D(Point3D p2) {
-		return this.distance3D(p2.x(), p2.y(), p2.z());}
+		return this.distance3D(p2.x(), p2.y(), p2.z());   }
+	
 	public double distance3D(double x, double y , double z)
 	{
 		double dx = _x-x;
@@ -237,4 +260,21 @@ public final static int DOWN = 6, UP = 7;
 	/** transform from radians to angles */
 	public static double d2r(double a) { return Math.toRadians(a);}
 	////////////////////////////////////////////////////////////////////////////////
+	
+	public Point3D toCartesians(Point3D p)
+	{	
+		double x = (EARTH_RADIUS+p._z) * Math.cos(p._x) * Math.cos(p._y);
+		double y = (EARTH_RADIUS+p._z) * Math.cos(p._x) * Math.sin(p._y);
+		double z = (EARTH_RADIUS+p._z) * Math.sin(p._x);
+		return new Point3D(x,y,z);
+	}
+	public Point3D toDegrees(Point3D p)
+	{
+		double x = Math.asin(p._z/EARTH_RADIUS)*180/Math.PI;
+		double y = Math.atan2(p._y, p._x)*180/Math.PI;
+		double z = Math.sqrt(Math.pow(p._x, 2) + Math.pow(p._y, 2) + Math.pow(p._z, 2)) ;
+		return new Point3D(x,y,z);
+	}
+
+
 }
