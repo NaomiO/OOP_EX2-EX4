@@ -261,20 +261,7 @@ public final static int DOWN = 6, UP = 7;
 	public static double d2r(double a) { return Math.toRadians(a);}
 	////////////////////////////////////////////////////////////////////////////////
 	
-	public Point3D toCartesians(Point3D p)
-	{	
-		double x = (EARTH_RADIUS+p._z) * Math.cos(p._x) * Math.cos(p._y);
-		double y = (EARTH_RADIUS+p._z) * Math.cos(p._x) * Math.sin(p._y);
-		double z = (EARTH_RADIUS+p._z) * Math.sin(p._x);
-		return new Point3D(x,y,z);
-	}
-	public Point3D toDegrees(Point3D p)
-	{
-		double x = Math.asin(p._z/EARTH_RADIUS)*180/Math.PI;
-		double y = Math.atan2(p._y, p._x)*180/Math.PI;
-		double z = Math.sqrt(Math.pow(p._x, 2) + Math.pow(p._y, 2) + Math.pow(p._z, 2)) ;
-		return new Point3D(x,y,z);
-	}
+
 
 
 }
