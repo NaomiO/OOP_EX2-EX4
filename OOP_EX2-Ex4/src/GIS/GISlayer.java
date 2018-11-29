@@ -7,15 +7,19 @@ import java.util.Set;
 
 public class GISlayer implements GIS_layer {
 	
-	private ArrayList<GIS_element> GISlayer = new ArrayList<GIS_element>();
+	private ArrayList <GIS_element> GISlayer = new ArrayList <GIS_element>();
+	
 	private ArrayList<MetaData> data = new ArrayList<MetaData>();
 
 	public GISlayer() {
+		
 		GISlayer = new ArrayList<GIS_element>();
+		
 		data = new ArrayList<MetaData>();
 	}
 	
 	public GISlayer(Set<GIS_element> la) {
+		
 		Iterator iter = la.iterator();
 		
 		while (iter.hasNext()) {

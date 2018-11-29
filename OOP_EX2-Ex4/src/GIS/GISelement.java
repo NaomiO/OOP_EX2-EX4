@@ -186,7 +186,7 @@ public class GISelement implements GIS_element {
 	@Override
 	public Geom_element getGeom() {
 
-		return null;
+		return p;
 	}
 
 	@Override
@@ -198,7 +198,7 @@ public class GISelement implements GIS_element {
 	@Override
 	public void translate(Point3D vec) {
 
-
+		p.add(vec);
 	}
 
 }
