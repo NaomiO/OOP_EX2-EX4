@@ -35,37 +35,20 @@ public class MyCoords implements coords_converter
 	public double distance3d(Point3D gps0, Point3D gps1)
 	{
 		
-//		Point3D new_gps1 = toCartesians(gps1);
-//		
-//		Point3D new_gps0 = toCartesians(gps0);
-//		
-//		double distance = Math.abs(new_gps0.distance3D(new_gps1)) ;
-////		
-////			if (distance>100000)
-////				
-////				throw new RuntimeException("The distance is too large"); 
-////		
-////			else 
-//				
-//		return distance;
-//			
-		double lonnorm=Math.cos(gps0.x()*(Math.PI/180));
-		double diflon;
-		double diflat;
+		Point3D new_gps1 = toCartesians(gps1);
 		
-
-		double dif_radlat;
-		double dif_radlon;
-		double altmeter;
-		double lonmeter;
-		diflat = gps1.x()-gps0.x();
-		diflon = gps1.y()-gps0.y();
-		diflat = gps1.z()-gps0.z();
-		dif_radlat = diflat*Math.PI/180;
-		dif_radlon = diflon*Math.PI/180;
-		altmeter = Math.sin(dif_radlat)*EARTH_RADIUS;
-		lonmeter = Math.sin(dif_radlon)*EARTH_RADIUS*lonnorm;
-		return Math.sqrt(Math.pow(altmeter, 2)+Math.pow(lonmeter, 2));
+		Point3D new_gps0 = toCartesians(gps0);
+		
+		double distance = Math.abs(new_gps0.distance3D(new_gps1)) ;
+		
+			if (distance>100000)
+				
+				throw new RuntimeException("The distance is too large"); 
+		
+			else 
+				
+		return distance;
+			
 	}
 
 	@Override
@@ -92,26 +75,16 @@ public class MyCoords implements coords_converter
 	public double[] azimuth_elevation_dist(Point3D gps0, Point3D gps1)
 	{
 		
-//		double [] azimuth = new double [3] ;
-//		
-//		azimuth[0] = gps1.north_angle(gps0);
-//		
-//		//ans[1] = Math.toDegrees(Math.asin((gps0.z()-gps1.z())/(distance3d(gps0 , gps1))));
-//		azimuth[1] = gps1.up_angle(gps0);	
-//		
-//		azimuth[2] = distance3d(gps1, gps0);
-//		
-//		return azimuth;
-		Point3D p = vector3D(gps0, gps1);
-		double r = Math.sqrt(Math.pow(p.x(), 2)+Math.pow(p.y(), 2) + Math.pow(p.z(), 2));
-		double teta = Math.acos(p.z()/r);
-		double phi = Math.atan(p.y()/p.x());
-
-		double x = r*Math.sin(teta) * Math.cos(phi);
-		double y = r* Math.sin(teta) * Math.sin(phi);
-		double z = r* Math.cos(teta);
-		double[] arr = {x,y,z};
-		return arr;
+		double [] azimuth = new double [3] ;
+		
+		azimuth[0] = gps1.north_angle(gps0);
+		
+		//ans[1] = Math.toDegrees(Math.asin((gps0.z()-gps1.z())/(distance3d(gps0 , gps1))));
+		azimuth[1] = gps1.up_angle(gps0);	
+		
+		azimuth[2] = distance3d(gps1, gps0);
+		
+		return azimuth;
 	}
 
 	@Override
@@ -150,4 +123,5 @@ public class MyCoords implements coords_converter
 		
 		return result;
 	}
+	
 }
