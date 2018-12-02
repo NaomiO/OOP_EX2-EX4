@@ -1,124 +1,56 @@
 package GIS;
-
 import Geom.Geom_element;
 import Geom.Point3D;
 import Coords.MyCoords;
+
+
 public class GISelement implements GIS_element{
-	private MetaData Metadata;	
+	
+	private MetaData Meta_data;	
     private Point3D Geom;
     
-	private String _MAC , _SSID , _AuthMode , _FirstSeen , _Channel , _RSSI ,_CurrentLatitude ,_CurrentLongitude,_AltitudeMeters, _AccuracyMeters , _Type;
+	private String MAC;
+	private String SSID;
+	private String AuthMode ;
+	private String FirstSeen;
+	private String Channel; 
+	private String RSSI ;
+	private String CurrentLatitude ;
+	private String CurrentLongitude; 
+	private String AltitudeMeters; 
+	private String AccuracyMeters ;
+	private String Type;
 
 	public GISelement() {
-		this._MAC=null;
-		this._SSID=null;
-		this._AuthMode=null;
-		this._FirstSeen=null;
-		this._Channel=null;
-		this._RSSI=null;
-		this._CurrentLatitude=null;
-		this._CurrentLongitude=null;
-		this._AltitudeMeters=null;
-		this._AccuracyMeters=null;
-		this._Type=null;	
-	}
-	public GISelement(String mac,String ssid, String authmode,String firstseen,String channel,String rssi,String currentlatitude,String currentLongitude, String altitudemeters,String accuracymeters,String type ) {
-		this._MAC=mac;
-		this._SSID=ssid;
-		this._AuthMode=authmode;
-		this._FirstSeen=firstseen;
-		this._Channel=channel;
-		this._RSSI=rssi;
-		this._CurrentLatitude=currentlatitude;
-		this._CurrentLongitude=currentLongitude;
-		this._AltitudeMeters=altitudemeters;
-		this._AccuracyMeters=accuracymeters;
-		this._Type=type;
-	}
-	
-	// ALL getters and setters 
-	public String get_MAC() {
-		return _MAC;
-	}
-	private void set_MAC(String _MAC) {
-		this._MAC =_MAC;
+		this.MAC=null;
+		this.SSID=null;
+		this.AuthMode=null;
+		this.FirstSeen=null;
+		this.Channel=null;
+		this.RSSI=null;
+		this.CurrentLatitude=null;
+		this.CurrentLongitude=null;
+		this.AltitudeMeters=null;
+		this.AccuracyMeters=null;
+		this.Type=null;	
 	}
 	
 	
-	public String get_SSID() {
-		return _SSID;
-	}
-	private void set_SSID(String _SSID) {
-		this._SSID =_SSID;
-	}
+	public GISelement(String mac,String ssid, String authmode,String firstseen,
+			String channel,String rssi,String currentlatitude,String currentLongitude, String altitudemeters
+			,String accuracymeters,String type ) {
+		this.RSSI=rssi;
+		this.CurrentLatitude=currentlatitude;
+		this.CurrentLongitude=currentLongitude;
+		this.AltitudeMeters=altitudemeters;
+		this.AccuracyMeters=accuracymeters;
+		this.Type=type;
+		this.MAC=mac;
+		this.SSID=ssid;
+		this.AuthMode=authmode;
+		this.FirstSeen=firstseen;
+		this.Channel=channel;
 	
-	
-	public String get_FirstSeen() {
-		return _FirstSeen;
-	}
-	private void set_FirstSeen(String _FirstSeen) {
-		this._FirstSeen =_FirstSeen;
-	}
-	
-	
-	public String get_AuthMode() {
-		return _AuthMode;
-	}
-	private void set_AuthMode(String _AuthMode) {
-		this._AuthMode =_AuthMode;
-	}
-	
-	
-	public String get_Channel() {
-		return _Channel;
-	}
-	private void set_Channel(String _Channel) {
-		this._Channel =_Channel;
-	}
-	
-	
-	public String get_CurrentLatitude() {
-		return _CurrentLatitude;
-	}
-	private void set_CurrentLatitude(String _CurrentLatitude) {
-		this._CurrentLatitude=_CurrentLatitude;
-	}
-	
-	public String get_RSSI() {
-		return _RSSI;
-	}
-	private void set_RSSI(String _RSSI) {
-		this._RSSI =_RSSI;
-	}
-	
-	
-	
-	public String get_AccuracyMeters() {
-		return _AccuracyMeters;
-	}
-	private void set_AccuracyMeters(String _AccuracyMeters) {
-		this._AccuracyMeters =_AccuracyMeters;
-	}
-	
-	public String get_Type() {
-		return _Type;
-	}
-	private void set_Type(String _Type) {
-		this._Type=_Type;
-	}
-	
-	
-	public String get_AltitudeMeters() {
-		return _AltitudeMeters;
-	}
-	private void set__AccuracyMeters(String _AccuracyMeters) {
-		this._AccuracyMeters=_AccuracyMeters;
-	}
-	public String get_CurrentLongitude() {
-		return _CurrentLongitude;
-	}
-	private void set_CurrentLongitude(String _CurrentLongitude) {
-		this._CurrentLongitude=_CurrentLongitude;
 	}
 	@Override
 	public Geom_element getGeom() {
@@ -127,7 +59,7 @@ public class GISelement implements GIS_element{
 
 	@Override
 	public Meta_data getData() {
-		return Metadata;
+		return Meta_data;
 	}
 	@Override
 	public void translate(Point3D vec) { 
@@ -135,8 +67,93 @@ public class GISelement implements GIS_element{
 	}
 	
 	public long getUTC() {
-		return Metadata.getUTC();
+		return Meta_data.getUTC();
 	}
+	
+	public String get_MAC() {
+		return MAC;
+	}
+	private void set_MAC(String _MAC) {
+		this.MAC =_MAC;
+	}
+	
+	
+	public String get_SSID() {
+		return SSID;
+	}
+	private void set_SSID(String _SSID) {
+		this.SSID =_SSID;
+	}
+	
+	
+	public String get_FirstSeen() {
+		return FirstSeen;
+	}
+	private void set_FirstSeen(String _FirstSeen) {
+		this.FirstSeen =_FirstSeen;
+	}
+	
+	
+	public String get_AuthMode() {
+		return AuthMode;
+	}
+	private void set_AuthMode(String _AuthMode) {
+		this.AuthMode =_AuthMode;
+	}
+	
+	
+	public String get_Channel() {
+		return Channel;
+	}
+	private void set_Channel(String _Channel) {
+		this.Channel =_Channel;
+	}
+	
+	
+	public String get_CurrentLatitude() {
+		return CurrentLatitude;
+	}
+	private void set_CurrentLatitude(String _CurrentLatitude) {
+		this.CurrentLatitude=_CurrentLatitude;
+	}
+	
+	public String get_RSSI() {
+		return RSSI;
+	}
+	private void set_RSSI(String _RSSI) {
+		this.RSSI =_RSSI;
+	}
+	
+	
+	
+	public String get_AccuracyMeters() {
+		return AccuracyMeters;
+	}
+	private void set_AccuracyMeters(String _AccuracyMeters) {
+		this.AccuracyMeters =_AccuracyMeters;
+	}
+	
+	public String get_Type() {
+		return Type;
+	}
+	private void set_Type (String _Type) {
+		this.Type=_Type;
+	}
+	
+	
+	public String get_AltitudeMeters() {
+		return AltitudeMeters;
+	}
+	private void set__AccuracyMeters (String _AccuracyMeters) {
+		this.AccuracyMeters=_AccuracyMeters;
+	}
+	public String get_CurrentLongitude() {
+		return CurrentLongitude;
+	}
+	private void set_CurrentLongitude (String _CurrentLongitude) {
+		this.CurrentLongitude=_CurrentLongitude;
+	}
+
 
 
 }
