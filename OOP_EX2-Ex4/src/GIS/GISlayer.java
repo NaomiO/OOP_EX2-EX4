@@ -11,11 +11,11 @@ public class GISlayer implements GIS_layer
 {	
 	Set <GIS_element> layer1 = new HashSet<GIS_element>();
 	Set <GIS_layer> layer2;
-	private MetaDataGroup Meta_data;
+	private MetaData1 Meta_data;
 
 	public void Project() {
 		layer2 = new LinkedHashSet<GIS_layer>();
-		Meta_data = new MetaDataGroup();
+		Meta_data = new MetaData1();
 	}	
 	/**
 	 * add element to layer
