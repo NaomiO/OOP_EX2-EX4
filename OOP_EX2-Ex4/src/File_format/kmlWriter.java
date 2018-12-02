@@ -5,9 +5,15 @@ import java.io.PrintWriter;
 import GIS.GISproject;
 import GIS.GISelement;
 import java.util.Iterator;
-
 import GIS.GIS_element;
 import GIS.GIS_layer;
+
+
+/**
+ * This class represents a kml file writer
+ * @author Shalhevet && Naomi
+ *
+ */
 
 public class kmlWriter {
 	

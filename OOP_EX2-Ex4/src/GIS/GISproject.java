@@ -6,6 +6,11 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+/**
+ * This class represents a project; after creating layers in GISlayer we add them to a "project"
+ * @author Shalhevet && Naomi
+ *
+ */
 public class GISproject implements GIS_project{
 
 	private MetaData1 Meta_data;

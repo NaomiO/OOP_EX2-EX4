@@ -2,10 +2,14 @@ package File_format;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
-
 import GIS.GISelement;
 import GIS.GISlayer;
+
+/**
+ * This class represents a csv reader file
+ * @author Shalhevet && Naomi
+ *
+ */
 
 public class csvReader {
 	/**

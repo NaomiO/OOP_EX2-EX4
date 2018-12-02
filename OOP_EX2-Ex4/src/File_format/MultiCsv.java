@@ -11,6 +11,14 @@ import GIS.GIS_element;
 import GIS.GISproject;
 import java.util.ArrayList;
 
+
+/**
+ * This class represents a converter for multiple csv files to kml files 
+ * @author Shalhevet && Naomi
+ *
+ */
+
+
 public class MultiCsv {
 	private static GISproject pro= new GISproject();
 	private static GISlayer lay=new GISlayer();

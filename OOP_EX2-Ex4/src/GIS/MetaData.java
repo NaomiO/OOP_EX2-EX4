@@ -1,8 +1,12 @@
 package GIS;
 
 import java.sql.Date;
-
 import Geom.Point3D;
+
+/**
+ * This class adds information to every point in the kml files such as time,date,altitude,type,etc...
+ * @author Shalhevet && Naomi
+ */
 
 public class MetaData implements Meta_data
 {

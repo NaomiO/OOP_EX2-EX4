@@ -3,6 +3,11 @@ import Geom.Geom_element;
 import Geom.Point3D;
 import Coords.MyCoords;
 
+/**
+ * This class gets a csv file and keep every line as an "element" 
+ * @author Shalhevet && Naomi
+ *
+ */
 
 public class GISelement implements GIS_element{
 	

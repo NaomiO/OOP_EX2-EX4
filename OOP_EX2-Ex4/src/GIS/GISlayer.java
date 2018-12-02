@@ -6,6 +6,12 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+/**
+ * This class represents a layer; after keeping every line as elements in GISelement we add all of them together to a "layer"
+ * @author Shalhevet && Naomi
+ *
+ */
+
 
 public class GISlayer implements GIS_layer 
 {	
