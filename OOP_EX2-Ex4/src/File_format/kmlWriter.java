@@ -11,6 +11,11 @@ import GIS.GIS_layer;
 
 public class kmlWriter {
 	
+	/**
+	 * This method gets a kml empty file and a full project from gis and fill the file with the layers from the project
+	 * @param output
+	 * @param pro
+	 */
 	public kmlWriter(String output,GISproject pro) {
 		PrintWriter pw = null;
 		
@@ -52,7 +57,7 @@ public class kmlWriter {
 		sb.append("</Document></kml>");
 		pw.write(sb.toString());
 		pw.close();
-		System.out.println("congratulations , you Have your KML file in: \n" +output);
+		System.out.println("Your new KML file is in : \n" +output);
 	}
 		
 	}

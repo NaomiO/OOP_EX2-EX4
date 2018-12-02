@@ -8,6 +8,11 @@ import GIS.GISelement;
 import GIS.GISlayer;
 
 public class csvReader {
+	/**
+	 * This method gets a csv file, reads it, keeps every line in GISelement and adds all of the element  into a GISlayer
+	 * @param csvFile
+	 * @return the layer
+	 */
 	public static GISlayer CVSread(String csvFile){
 
 		String line = "";

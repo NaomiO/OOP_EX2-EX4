@@ -16,7 +16,11 @@ public class MultiCsv {
 	private static GISlayer lay=new GISlayer();
 	public static ArrayList<String> CSVFiles=new ArrayList<String>(); 
 
-	
+	/**
+	 * This method gets a csv file and transform it into a kml file
+	 * @param directoryPath
+	 * @return the new file in kml
+	 */
 	public static ArrayList<String>  CSVrexursia(String directoryPath){
 		File[] filesInDirectory = new File(directoryPath).listFiles();
 		for(File f : filesInDirectory){
@@ -25,13 +29,11 @@ public class MultiCsv {
 			if("csv".equals(fileExtenstion)){
 				CSVFiles.add(filePath);
 				System.out.println("CSV file found -> " + filePath);
-				// Call the method checkForCobalt(filePath);
 			}
 		}    
 		return CSVFiles;
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 	
 		GISproject pro=new GISproject();
 		String directoryPath="C:\\Users\\Benjamin\\git\\OOP_EX2-EX4\\CSVFiles";
