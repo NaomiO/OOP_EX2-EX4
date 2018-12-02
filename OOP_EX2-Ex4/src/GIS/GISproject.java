@@ -1,92 +1,113 @@
 package GIS;
-
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
-
-public class GISproject implements GIS_project {
-
+import java.util.LinkedHashSet;
+import java.util.Set;
+public class GISproject implements GIS_project{
+	private MetaDataGroup Metadata;
+	Set<GIS_layer> layers;
+	public GISproject() {
+		layers = new LinkedHashSet<GIS_layer>();
+		Metadata = new MetaDataGroup();
+	}
+	Set<GIS_layer> _project= new HashSet<GIS_layer>();
+/**
+ * add layer to project
+ */
 	@Override
 	public boolean add(GIS_layer e) {
-	
-		return false;
+		return _project.add(e);
 	}
-
+/**
+ * add all to project
+ */
 	@Override
 	public boolean addAll(Collection<? extends GIS_layer> c) {
-		
-		return false;
+		return _project.addAll(c);
 	}
-
+/**
+ * clear project
+ */
 	@Override
 	public void clear() {
-	
-		
+		_project.clear();
 	}
-
+/**
+ * ask if contains o in the project
+ */
 	@Override
 	public boolean contains(Object o) {
-		
-		return false;
+		return _project.contains(o);
 	}
-
+/**
+ * ask if the collection contains c
+ */
 	@Override
 	public boolean containsAll(Collection<?> c) {
-		
-		return false;
+		return _project.containsAll(c);
 	}
-
+/**
+ * ask if project is empty
+ */
 	@Override
 	public boolean isEmpty() {
-		
-		return false;
+		return _project.isEmpty();
 	}
-
+/**
+ * bring the iterator to project
+ */
 	@Override
 	public Iterator<GIS_layer> iterator() {
-		
-		return null;
+		return _project.iterator();
 	}
-
+/**
+ * remove o from project
+ */
 	@Override
 	public boolean remove(Object o) {
-		
-		return false;
+		return _project.remove(o);
 	}
-
+/**
+ * remove all c from project
+ */
 	@Override
 	public boolean removeAll(Collection<?> c) {
-		
-		return false;
+		return _project.removeAll(c);
 	}
-
+/**
+ * retain all c in project
+ */
 	@Override
 	public boolean retainAll(Collection<?> c) {
-		
-		return false;
+		return _project.retainAll(c);
 	}
-
+/**
+ * return size of project
+ */
 	@Override
 	public int size() {
-		
-		return 0;
+		return _project.size();
 	}
-
+/**
+ * take the _project to array
+ */
 	@Override
 	public Object[] toArray() {
-	
-		return null;
+		return _project.toArray();
 	}
-
+/**
+ * create array from _project
+ */
 	@Override
 	public <T> T[] toArray(T[] a) {
-		
-		return null;
+		return _project.toArray(a);
 	}
-
+/**
+ * return the metadata of project
+ */
 	@Override
-	public Meta_data get_Meta_data() {
-	
-		return null;
+	public Meta_data get_Meta_data() {       
+	return Metadata;
 	}
-
 }

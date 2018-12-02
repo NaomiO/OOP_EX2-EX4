@@ -2,203 +2,141 @@ package GIS;
 
 import Geom.Geom_element;
 import Geom.Point3D;
+import Coords.MyCoords;
+public class GISelement implements GIS_element{
+	private MetaData Metadata;	
+    private Point3D Geom;
+    
+	private String _MAC , _SSID , _AuthMode , _FirstSeen , _Channel , _RSSI ,_CurrentLatitude ,_CurrentLongitude,_AltitudeMeters, _AccuracyMeters , _Type;
 
-
-
-public class GISelement implements GIS_element {
+	public GISelement() {
+		this._MAC=null;
+		this._SSID=null;
+		this._AuthMode=null;
+		this._FirstSeen=null;
+		this._Channel=null;
+		this._RSSI=null;
+		this._CurrentLatitude=null;
+		this._CurrentLongitude=null;
+		this._AltitudeMeters=null;
+		this._AccuracyMeters=null;
+		this._Type=null;	
+	}
+	public GISelement(String mac,String ssid, String authmode,String firstseen,String channel,String rssi,String currentlatitude,String currentLongitude, String altitudemeters,String accuracymeters,String type ) {
+		this._MAC=mac;
+		this._SSID=ssid;
+		this._AuthMode=authmode;
+		this._FirstSeen=firstseen;
+		this._Channel=channel;
+		this._RSSI=rssi;
+		this._CurrentLatitude=currentlatitude;
+		this._CurrentLongitude=currentLongitude;
+		this._AltitudeMeters=altitudemeters;
+		this._AccuracyMeters=accuracymeters;
+		this._Type=type;
+	}
 	
-	Meta_data data;
-	Point3D p;
-
-	private String MAC;
-
-	private String SSID;
-
-	private String AuthMode;
-
-	private String Firstseen;
-
-	private int Channel;
-
-	private int RSSI;
-
-	private double CurrentLatitude;
-
-	private double CurrentLongitude;
-
-	private double AltitudeMeters;
-	
-	private int AccuracyMeters;
-	
-	private String Type;
-
-
-	public GISelement(String MAC,String SSID,String AuthMode,String Firstseen,
-			String Channel,String RSSI,String CurrentLatitude,String CurrentLongitude,
-			String AltitudeMeters,String AccuracyMeters,String Type) 
-	{
-
-		setMAC(MAC); 
-		setSSID(SSID);
-		setAuthMode(AuthMode);
-		setFirstseen(Firstseen);
-		setChannel(Channel);
-		setRSSI(RSSI);
-		setCurrentLatitude(CurrentLatitude);
-		setType(Type);
-	//	setP(CurrentLatitude,CurrentLongitude,AltitudeMeters);
-		setChannel(Channel);
-		setAccuracyMeters(AccuracyMeters);		
-
-		//m = new Meta_Data();
+	// ALL getters and setters 
+	public String get_MAC() {
+		return _MAC;
 	}
-
-
-
-
-//	public Point3D getP() {
-//		return p;
-//	}
-//
-//	public void setP(String CurrentLatitude,String CurrentLongitude, String AltitudeMeters) {
-//		this.p = p;
-//	}
-
-
-	/*MAC*/
-	public String getMAC() {
-		return MAC;
-	}
-
-	public void setMAC(String mAC) {
-		this.MAC = mAC;
-	}
-
-	/*SSID*/
-	public String getSSID() {
-		return SSID;
-	}
-
-	public void setSSID(String sSID) {
-		this.SSID = sSID;
-	}
-
-
-	/*AuthMode*/
-	public String getAuthMode() {
-		return AuthMode;
-	}
-
-	public void setAuthMode(String authMode) {
-		this.AuthMode = authMode;
-	}
-
-	/*Firstseen*/
-	public String getFirstseen() {
-		return Firstseen;
-	}
-
-	public void setFirstseen(String firstseen) {
-		this.Firstseen = firstseen;
-	}
-
-	/*Channel*/
-	public int getChannel() {
-		return Channel;
-	}
-
-	public void setChannel(String channel) {
-		int Channel1 = Integer.parseInt(channel);
-		this.Channel = Channel1;
+	private void set_MAC(String _MAC) {
+		this._MAC =_MAC;
 	}
 	
 	
-	/*RSSI*/
-	public int getRSSI() {
-		return RSSI;
+	public String get_SSID() {
+		return _SSID;
 	}
-
-	public void setRSSI(String rSSI) {
-		int RSSI1= Integer.parseInt(rSSI);
-		this.RSSI = RSSI1;
-	}
-
-
-	/*CurrentLatitude*/
-	public double getCurrentLatitude() {
-		return CurrentLatitude;
-	}
-
-	public void setCurrentLatitude(String currentLatitude) {
-		double currentLatitude1 = Double.parseDouble(currentLatitude);
-		this.CurrentLatitude = currentLatitude1;
-	}
-
-	/*CurrentLongitude*/
-	public double getCurrentLongitude() {
-		return CurrentLongitude;
-	}
-
-	public void setCurrentLongitude(String currentLongitude) {
-		double currentLongitude1 = Double.parseDouble(currentLongitude);
-		this.CurrentLongitude = currentLongitude1;
+	private void set_SSID(String _SSID) {
+		this._SSID =_SSID;
 	}
 	
 	
-	/*AltitudeMeters*/
-	public double getAltitudeMeters() {
-		return AltitudeMeters;
+	public String get_FirstSeen() {
+		return _FirstSeen;
 	}
-
-	public void setAltitudeMeters(String altitudeMeters) {
-		double altitudeMeters1 = Double.parseDouble(altitudeMeters);
-		this.AltitudeMeters = altitudeMeters1;
+	private void set_FirstSeen(String _FirstSeen) {
+		this._FirstSeen =_FirstSeen;
 	}
-
-   /*AccuracyMeters*/
-	public int getAccuracyMeters() {
-		return AccuracyMeters;
+	
+	
+	public String get_AuthMode() {
+		return _AuthMode;
 	}
-
-	public void setAccuracyMeters(String accuracyMeters) {
-		int accuracyMeters1= Integer.parseInt(accuracyMeters);
-		this.AccuracyMeters = accuracyMeters1;
+	private void set_AuthMode(String _AuthMode) {
+		this._AuthMode =_AuthMode;
 	}
-
-
-    /*Type*/
-	public String getType() {
-		return Type;
+	
+	
+	public String get_Channel() {
+		return _Channel;
 	}
-
-	public void setType(String type) {
-		this.Type = type;
+	private void set_Channel(String _Channel) {
+		this._Channel =_Channel;
 	}
-
-
-
-	public void setData(Meta_data data) {
-		this.data = data;
+	
+	
+	public String get_CurrentLatitude() {
+		return _CurrentLatitude;
 	}
-
-
-
+	private void set_CurrentLatitude(String _CurrentLatitude) {
+		this._CurrentLatitude=_CurrentLatitude;
+	}
+	
+	public String get_RSSI() {
+		return _RSSI;
+	}
+	private void set_RSSI(String _RSSI) {
+		this._RSSI =_RSSI;
+	}
+	
+	
+	
+	public String get_AccuracyMeters() {
+		return _AccuracyMeters;
+	}
+	private void set_AccuracyMeters(String _AccuracyMeters) {
+		this._AccuracyMeters =_AccuracyMeters;
+	}
+	
+	public String get_Type() {
+		return _Type;
+	}
+	private void set_Type(String _Type) {
+		this._Type=_Type;
+	}
+	
+	
+	public String get_AltitudeMeters() {
+		return _AltitudeMeters;
+	}
+	private void set__AccuracyMeters(String _AccuracyMeters) {
+		this._AccuracyMeters=_AccuracyMeters;
+	}
+	public String get_CurrentLongitude() {
+		return _CurrentLongitude;
+	}
+	private void set_CurrentLongitude(String _CurrentLongitude) {
+		this._CurrentLongitude=_CurrentLongitude;
+	}
 	@Override
 	public Geom_element getGeom() {
-
-		return p;
+		return Geom;
 	}
 
 	@Override
 	public Meta_data getData() {
-
-		return data;
+		return Metadata;
 	}
-
 	@Override
-	public void translate(Point3D vec) {
-
-		p.add(vec);
+	public void translate(Point3D vec) { 
+	Geom=new MyCoords().add(Geom,vec);	 
 	}
+	
+	public long getUTC() {
+		return Metadata.getUTC();
+	}
+
 
 }
