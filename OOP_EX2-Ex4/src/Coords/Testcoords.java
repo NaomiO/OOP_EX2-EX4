@@ -95,7 +95,8 @@ class Testcoords {
 			assertEquals(0.49,(double)((int)(arr[1]))/10);
 			assertEquals(493,(int)(arr[2]));
 		}
-//
+
+//******************************************************************************
 		
 		@Test
 		void testIsValid_GPS_Point() {
