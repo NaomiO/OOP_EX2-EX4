@@ -13,12 +13,12 @@ import java.util.Set;
  */
 public class GISproject implements GIS_project{
 
-	private MetaData1 Meta_data;
+	private MetaDataForFile Meta_data;
 	Set<GIS_layer> layer;
 
 	public GISproject() {
 		layer = new LinkedHashSet<GIS_layer>();
-		Meta_data = new MetaData1();
+		Meta_data = new MetaDataForFile();
 	}
 
 	Set<GIS_layer> project= new HashSet<GIS_layer>();
@@ -131,7 +131,7 @@ public class GISproject implements GIS_project{
 		return size;
 	}
 	/**
-	 * take the _project to array
+	 * take the project to array
 	 */
 	@Override
 	public Object[] toArray() {
@@ -140,7 +140,7 @@ public class GISproject implements GIS_project{
 		
 	}
 	/**
-	 * create array from _project
+	 * create array from project
 	 */
 	@Override
 	public <T> T[] toArray(T[] a) {

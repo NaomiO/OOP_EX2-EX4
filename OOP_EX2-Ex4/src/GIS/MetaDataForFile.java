@@ -1,11 +1,16 @@
 package GIS;
 import java.util.Date;
 import Geom.Point3D;
-public class MetaData1 implements Meta_data {
+
+/**
+ * This class adds information to every point in the kml files such as time,date,altitude,type,etc...
+ * @author Shalhevet && Naomi
+ */
+public class MetaDataForFile implements Meta_data {
 	
 	private long UTC;
 	
-	public MetaData1()
+	public MetaDataForFile()
 	{
 		
 		Date date = new Date();
@@ -15,6 +20,9 @@ public class MetaData1 implements Meta_data {
 	}
 	
 	@Override
+	/**
+	 * gets utc data 
+	 */
 	public long getUTC() 
 	{
 		return UTC;

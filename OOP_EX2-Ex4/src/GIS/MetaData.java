@@ -46,6 +46,9 @@ public class MetaData implements Meta_data
 	}
 
 	@Override
+	/**
+	 * creates time and date data for point
+	 */
 	public long getUTC() 
 	{
 		int year;

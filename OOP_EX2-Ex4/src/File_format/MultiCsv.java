@@ -1,5 +1,3 @@
-
-
 package File_format;
 
 import java.io.File;
@@ -20,39 +18,47 @@ import java.util.ArrayList;
 
 
 public class MultiCsv {
-	private static GISproject pro= new GISproject();
-	private static GISlayer lay=new GISlayer();
-	public static ArrayList<String> CSVFiles=new ArrayList<String>(); 
+	
+	private static GISproject project= new GISproject();
+	private static GISlayer layer=new GISlayer();
+	public static ArrayList<String> csvFiles=new ArrayList<String>(); 
 
 	/**
 	 * This method gets a csv file and transform it into a kml file
 	 * @param directoryPath
 	 * @return the new file in kml
 	 */
-	public static ArrayList<String>  CSVrexursia(String directoryPath){
-		File[] filesInDirectory = new File(directoryPath).listFiles();
+	public static ArrayList<String>  CSVResearch(String source){
+		
+		File[] filesInDirectory = new File(source).listFiles();
 		for(File f : filesInDirectory){
+			
 			String filePath = f.getAbsolutePath();
 			String fileExtenstion = filePath.substring(filePath.lastIndexOf(".") + 1,filePath.length());
 			if("csv".equals(fileExtenstion)){
-				CSVFiles.add(filePath);
-				System.out.println("CSV file found -> " + filePath);
+				csvFiles.add(filePath);
+				System.out.println("CSV file : " + filePath);
+				
 			}
 		}    
-		return CSVFiles;
+		return csvFiles;
 	}
 	public static void main(String[] args) {
 	
-		GISproject pro=new GISproject();
-		String directoryPath="C:\\Users\\Benjamin\\git\\OOP_EX2-EX4\\CSVFiles";
-		CSVFiles=CSVrexursia(directoryPath);
-		Iterator<String> CSVFile = CSVFiles.iterator();
+		GISproject project=new GISproject();
+		String source="C:\\Users\\Benjamin\\git\\OOP_EX2-EX4\\CSVFiles";
+		csvFiles=CSVResearch(source);
+		Iterator<String> CSVFile = csvFiles.iterator();
+		
 		while (CSVFile.hasNext()) {
-			lay=csvReader.CVSread(CSVFile.next());
-			pro.add(lay);
+			layer=csvReader.CVSread(CSVFile.next());
+			project.add(layer);
 		}
-		System.out.println(pro.size());
+		
+		System.out.println();
+
 		String SaveKMLTo="C:\\Users\\Benjamin\\git\\OOP_EX2-EX4\\KMLFiles\\kmlFile3.kml";
-		kmlWriter kml=new kmlWriter (SaveKMLTo ,pro);
+		
+		kmlWriter kml=new kmlWriter (SaveKMLTo ,project);
 			}
 }

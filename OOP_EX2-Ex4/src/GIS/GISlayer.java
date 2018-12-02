@@ -17,11 +17,11 @@ public class GISlayer implements GIS_layer
 {	
 	Set <GIS_element> layer1 = new HashSet<GIS_element>();
 	Set <GIS_layer> layer2;
-	private MetaData1 Meta_data;
+	private MetaDataForFile Meta_data;
 
 	public void Project() {
 		layer2 = new LinkedHashSet<GIS_layer>();
-		Meta_data = new MetaData1();
+		Meta_data = new MetaDataForFile();
 	}	
 	/**
 	 * add element to layer
@@ -147,7 +147,7 @@ public class GISlayer implements GIS_layer
 		
 	}
 	/**
-	 * return the meta datas of the layer
+	 * return the meta data of the layer
 	 */
 	@Override
 	public Meta_data get_Meta_data() { 	
