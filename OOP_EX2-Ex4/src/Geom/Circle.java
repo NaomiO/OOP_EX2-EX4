@@ -6,8 +6,10 @@ package Geom;
  *
  */
 public class Circle implements Geom_element {
+	
 	private Point3D _cen;
 	private double _radius;
+	
 	public Circle(Point3D cen, double rad) {
 		this.set_cen(new Point3D(cen));
 		this.set_radius(rad);
