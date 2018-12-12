@@ -87,12 +87,19 @@ class Testcoords {
 			MyCoords m = new MyCoords();
 			
 			double[] arr;
+			
 			Point3D p2 = new Point3D(32.106352,35.205223,650);
+			
 			Point3D p1 = new Point3D(32.103315,35.20904,670);
+			
 			System.out.println(m.distance3d(p1, p2));
+			
 			arr = m.azimuth_elevation_dist(p1,p2);
-			assertEquals(313,(int)(arr[0])); //132
-			assertEquals(-0.2,(double)((int)(arr[1]))/10); //0.49
+			
+			assertEquals(132,(int)(arr[0])); //132
+			
+			assertEquals(0.49,(double)((int)(arr[1]))/10); //0.49
+			
 			assertEquals(493,(int)(arr[2]));
 		}
 
@@ -100,10 +107,15 @@ class Testcoords {
 		
 		@Test
 		void testIsValid_GPS_Point() {
+			
 			MyCoords p = new MyCoords();
+			
 			Point3D p1 = new Point3D(32.106352,35.205225,650);
+			
 			if (!p.isValid_GPS_Point(p1))
+				
 				fail("point is invalid");
+			
 		}
 	
 }

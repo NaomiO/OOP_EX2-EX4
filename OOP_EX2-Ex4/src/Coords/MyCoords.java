@@ -115,54 +115,71 @@ public class MyCoords implements coords_converter
 	  *    @param the second point
 	  *    @return the polar representation of the 3D vector between the two points
 	  */
-	@Override
-	public double[] azimuth_elevation_dist(Point3D gps0, Point3D gps1) {
+//	@Override
+//	public double[] azimuth_elevation_dist(Point3D gps0, Point3D gps1) {
+//		
+//		double[] arr = new double[3];
+//		
+//		Point3D p = vector3D( gps0 , gps1 );
+//		
+//		if (isValid_GPS_Point(gps0) == false || isValid_GPS_Point(gps1) == false) {
+//			throw new RuntimeException("gps is invalid point");
+//		}
+//		
+//		else {
+//			
+//		
+//			
+//			if ((p.x()<0) && (p.y()<0) ) {
+//				arr[0] = 180 + arr[0];
+//			}
+//			if (arr[0]<0) {
+//				arr[0]= arr[0]+ 360;
+//				}
+//			if (arr[0]>360) {
+//				arr[0] = arr[0] - 360;
+//			}
+//			
+//			arr[2] = distance3d(gps0,gps1);
+//			
+//			arr[0] = Math.toDegrees( Math.atan( Math.abs( ( p.y()) / (p.x() ) ) ) );
+//			
+//			if ((p.x()<0)&&(p.y()>0)) {
+//				arr[0] = 180 - arr[0];
+//			}
+//			if ((p.y()<0)&&(p.x()>0)) {
+//				arr[0] = 360 - arr[0];
+//			}
+//		
+//			
+//			arr [1] = Math.toDegrees(Math.asin(p.z()/arr[2]));
+//			
+//			return arr;
+//		}
+
 		
-		double[] arr = new double[3];
-		
-		Point3D p = vector3D( gps0 , gps1 );
-		
-		if (isValid_GPS_Point(gps0) == false || isValid_GPS_Point(gps1) == false) {
-			throw new RuntimeException("gps is invalid point");
-		}
-		
-		else {
-			
-		
-			
-			if ((p.x()<0) && (p.y()<0) ) {
-				arr[0] = 180 + arr[0];
-			}
-			if (arr[0]<0) {
-				arr[0]= arr[0]+ 360;
-				}
-			if (arr[0]>360) {
-				arr[0] = arr[0] - 360;
-			}
-			
-			arr[2] = distance3d(gps0,gps1);
-			
-			arr[0] = Math.toDegrees( Math.atan( Math.abs( ( p.y()) / (p.x() ) ) ) );
-			
-			if ((p.x()<0)&&(p.y()>0)) {
-				arr[0] = 180 - arr[0];
-			}
-			if ((p.y()<0)&&(p.x()>0)) {
-				arr[0] = 360 - arr[0];
-			}
-		
-			
-			arr [1] = Math.toDegrees(Math.asin(p.z()/arr[2]));
-			
-			return arr;
+		private double  azimuth(Point3D p0, Point3D p1) {
+			double longDiff= Point3D.d2r((p1.y()-p0.y()));
+			double p0_x_r=Point3D.d2r(p0.x());
+			double p1_x_r=Point3D.d2r(p1.x());
+			double y = Math.sin(longDiff)*Math.cos(p1_x_r);
+			double x = Math.cos(p0_x_r)*Math.sin(p1_x_r)-Math.sin(p0_x_r)*Math.cos(p1_x_r)*Math.cos(longDiff);
+			return Point3D.r2d(Math.atan2(y, x))+360%360;
 		}
 
+		private double  elevation(Point3D p0, Point3D p1) {
+			return Point3D.r2d(Math.asin((p1.z()-p0.z())/(distance3d(p0, p1))));
 	}
 	
+		 public double[] azimuth_elevation_dist(Point3D gps0, Point3D gps1) {
+				double[] azimuth_elevation_dist=new double [3];
+				azimuth_elevation_dist[0]=azimuth(gps0,gps1);
+				azimuth_elevation_dist[1]=elevation(gps0,gps1);
+				azimuth_elevation_dist[2]=distance3d(gps0, gps1);
+				return azimuth_elevation_dist;
 
 
-
-
+		 }
 
 
 
