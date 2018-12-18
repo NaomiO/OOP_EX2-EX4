@@ -77,7 +77,7 @@ public class GISelement implements GIS_element{
 	 * add a 3d point 
 	 */
 	public void translate(Point3D vec) { 
-	Geom=new MyCoords().add(Geom,vec);	 
+	 Geom = new MyCoords().add(Geom,vec);	 
 	}
 	
 	/**

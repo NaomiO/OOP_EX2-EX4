@@ -1,4 +1,4 @@
-package Map;
+package Packman_game;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
