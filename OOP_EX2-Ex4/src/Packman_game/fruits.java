@@ -7,9 +7,16 @@ import Geom.Point3D;
 
 public class fruits {
 
-	
 	private double speed_weight;
 	Point3D Points;
+	
+	
+
+	public fruits(double speed_weight,Point3D Points) {
+		this.speed_weight = speed_weight;
+		this.Points = Points;
+	
+	}
 	
 
 	public fruits(Point3D Point) {
@@ -19,8 +26,6 @@ public class fruits {
 	
 	}
 	/*setters and getters*/
-
-	
 
 	public Point3D getPoints() {
 		return Points;

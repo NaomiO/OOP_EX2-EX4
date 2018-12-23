@@ -4,6 +4,7 @@ import GIS.GIS_element;
 import GIS.Meta_data;
 import Geom.Geom_element;
 import Geom.Point3D;
+import java.util.ArrayList;
 
 public class Packman {
 
@@ -14,13 +15,13 @@ public class Packman {
 
 
 	//constructor 
-	//(double radius,double speed_weight,double Alt,double Lon,double Lat,int id)
+	
 	public Packman(double radius,double speed_weight,Point3D Pac) {
 		this.radius = radius;
 		this.speed_weight = speed_weight;
 		this.Pacman=Pac;
 	
-		//this.Type = Type;
+		
 	}
 	/*setters and getters*/
 
