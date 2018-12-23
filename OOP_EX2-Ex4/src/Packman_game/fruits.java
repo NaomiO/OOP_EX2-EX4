@@ -8,30 +8,30 @@ import Geom.Point3D;
 public class fruits {
 
 	private double speed_weight;
-	Point3D Points;
+	Point3D fruit_Points;
 	
 	
 
-	public fruits(double speed_weight,Point3D Points) {
+	public fruits(double speed_weight,Point3D fruit_Points) {
 		this.speed_weight = speed_weight;
-		this.Points = Points;
+		this.fruit_Points = fruit_Points;
 	
 	}
 	
-	public fruits(Point3D Point) {
+	public fruits(Point3D fruit_Points) {
 	this.speed_weight = 1;
-	this.Points = Point;
+	this.fruit_Points = fruit_Points;
 	
 	
 	}
 	/*setters and getters*/
 
-	public Point3D getPoints() {
-		return Points;
+	public Point3D getfruit_Points() {
+		return fruit_Points;
 	}
 
-	public void setPoints(Point3D points) {
-		Points = points;
+	public void setfruit_Points(Point3D points) {
+		fruit_Points = points;
 	}
 
 
@@ -49,42 +49,3 @@ public class fruits {
 	
 	
 }
-
-
-//
-//public class fruits {
-//
-//	
-//	private double speed;
-//	private int id;
-//	Point3D fruit_Points;
-//	
-//
-//	public fruits(Point3D fruitCoords) {
-//
-//	this.fruitCoords=fruitCoords;
-//
-//	
-//	
-//	}
-//	/*setters and getters*/
-//
-//	
-//
-//	public Point3D getfruitCoords() {
-//		return fruitCoords;
-//	}
-//
-//	
-//
-//	public double getSpeed() {
-//		return this.speed;
-//	}
-//
-//	public int getId() {
-//		return this.id;
-//	}
-//	
-//	
-//	
-//}

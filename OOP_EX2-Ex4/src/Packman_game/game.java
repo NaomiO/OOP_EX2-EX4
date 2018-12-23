@@ -83,11 +83,11 @@ public class game {
 		for (int i = 0; i < this.f.size(); i++) {
 			builder.append("F");
 			builder.append(',');
-			builder.append(f.get(i).Points.x());
+			builder.append(f.get(i).fruit_Points.x());
 			builder.append(',');
-			builder.append(f.get(i).Points.y());;
+			builder.append(f.get(i).fruit_Points.y());;
 			builder.append(',');
-			builder.append(f.get(i).Points.z());
+			builder.append(f.get(i).fruit_Points.z());
 			builder.append(',');	
 			builder.append(f.get(i).getSpeed_weight());
 			builder.append('\n');
