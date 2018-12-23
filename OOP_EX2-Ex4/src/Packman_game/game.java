@@ -68,11 +68,11 @@ public class game {
 			
 			builder.append("P");
 			builder.append(',');
-			builder.append(p.get(i).getPacman().x());
+			builder.append(p.get(i).getPacman_Points().x());
 			builder.append(',');
-			builder.append(p.get(i).getPacman().y());
+			builder.append(p.get(i).getPacman_Points().y());
 			builder.append(',');
-			builder.append(p.get(i).getPacman().z());
+			builder.append(p.get(i).getPacman_Points().z());
 			builder.append(',');
 			builder.append(p.get(i).getSpeed_weight());
 			builder.append(',');

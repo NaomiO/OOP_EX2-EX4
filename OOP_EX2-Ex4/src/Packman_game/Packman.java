@@ -10,7 +10,7 @@ public class Packman {
 
 	private double radius;
 	private double speed_weight;
-	private Point3D Pacman;
+	private Point3D Pacman_Points;
 
 
 
@@ -19,7 +19,7 @@ public class Packman {
 	public Packman(double radius,double speed_weight,Point3D Pac) {
 		this.radius = radius;
 		this.speed_weight = speed_weight;
-		this.Pacman=Pac;
+		this.Pacman_Points=Pac;
 	
 		
 	}
@@ -51,18 +51,14 @@ public class Packman {
 
 
 
-	public Point3D getPacman() {
-		return Pacman;
+	public Point3D getPacman_Points() {
+		return Pacman_Points;
 	}
 
 
 
-	public void setPacman(Point3D pacman) {
-		Pacman = pacman;
+	public void setPacman_Points(Point3D Pacman_Points) {
+		this.Pacman_Points = Pacman_Points;
 	}
-
 }
-
-
-
 
