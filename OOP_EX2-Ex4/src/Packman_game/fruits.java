@@ -18,10 +18,9 @@ public class fruits {
 	
 	}
 	
-
 	public fruits(Point3D Point) {
-
-	this.Points=Point;
+	this.speed_weight = 1;
+	this.Points = Point;
 	
 	
 	}
