@@ -11,6 +11,7 @@ public class Packman {
 	private double radius;
 	private double speed_weight;
 	private Point3D Pacman_Points;
+	private int id;
 
 
 
@@ -59,6 +60,15 @@ public class Packman {
 
 	public void setPacman_Points(Point3D Pacman_Points) {
 		this.Pacman_Points = Pacman_Points;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }
 

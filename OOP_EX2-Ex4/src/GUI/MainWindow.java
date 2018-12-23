@@ -133,8 +133,8 @@ public class MainWindow extends JFrame implements MouseListener
 		
 			for (int i = 0; i < Mygame.getPackman().size(); i++) {
 				
-				x1=(Mygame.getPackman().get(i).getPacman().x())*getWidth();
-				y1=(Mygame.getPackman().get(i).getPacman().y())*getHeight();
+				x1=(Mygame.getPackman().get(i).getPacman_Points().x())*getWidth();
+				y1=(Mygame.getPackman().get(i).getPacman_Points().y())*getHeight();
 				
 			
 				g.drawImage(Pacman,(int)x1,(int)y1,30,30,null);
@@ -145,8 +145,8 @@ public class MainWindow extends JFrame implements MouseListener
 			
 		for (int i = 0; i < Mygame.getfruits().size(); i++) {
 				
-				x1=( Mygame.getfruits().get(i).getPoints().x())*getWidth();
-				y1=(Mygame.getfruits().get(i).getPoints().y())*getHeight();
+				x1=( Mygame.getfruits().get(i).getfruit_Points().x())*getWidth();
+				y1=(Mygame.getfruits().get(i).getfruit_Points().y())*getHeight();
 				
 			
 				g.drawImage(Fruit,(int)x1,(int)y1,30,30,null);

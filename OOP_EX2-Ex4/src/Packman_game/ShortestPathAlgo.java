@@ -1,61 +1,80 @@
 package Packman_game;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import Geom.Point3D;
+import Packman_game.game;
+import Packman_game.fruits;
+import Packman_game.map;
+import Packman_game.Packman;
 
-import Coords.MyCoords;
+
 
 public class ShortestPathAlgo {
-	private game game;
 	
-	public ShortestPathAlgo(game game)
-	{
-		this.game = game;
-	}
-	
-	public ArrayList<Integer> ShortestPath ()
-	{
+	public static class ShortestPath {
+
+		protected fruits bestFruit;
+		protected Packman bestPacman;
+		protected double bestTime;
 		
-		MyCoords mycoords = new MyCoords();
-		ArrayList<Integer> order = new ArrayList<Integer>();
-		
-		ArrayList<Packman> pacList = new ArrayList<Packman>();
-		pacList.addAll(game.getPackman());         //adds all the pacman to the array list
-		//ArrayList<Fruit> fruitsTemp = new ArrayList<Fruit>();
-		ArrayList<fruits> fruitList = new ArrayList<fruits>();
-		fruitList.addAll(game.getfruits());  
-		
-		Iterator<fruits> itF = fruitList.iterator();
-	//	Iterator<fruits> itF = game.getFruits().iterator();
-		
-		while(itF.hasNext())
-		{
-			int index = 0;
-			fruits fruit = itF.next();
-			Iterator<Packman> itP = pacList.iterator();
-			//taking first/only packman as fastest with best time by default
-			Packman fastest = itP.next();
-			double bestTime = mycoords.distance3d(fastest.getPacman(),fruit.getPoints())/fastest.getSpeed_weight();
-			
-			while(itP.hasNext())
-			{
-				Packman packman = itP.next();
-				++index;
-				double time = mycoords.distance3d(packman.getPacman(),fruit.getPoints())/packman.getSpeed_weight();
-				if(time<bestTime)
-				{
-					bestTime = time;
-					fastest = packman;
-				}
-			}
-			order.add(fastest.getId());
-			order.add(fruit.getId());
-			//change the place of the fastest packman to the place of fruit
-			pacList.set(index,new Packman(fastest.getRadius(),fastest.getSpeed_weight(),index,fruit.getPoints()));
-			
+		public ShortestPath (fruits bestFruit, Packman bestPackman, double minTime) {
+			this.bestFruit = bestFruit;
+			this.bestPacman = bestPackman;
+			this.bestTime = minTime;
 		}
-		return order;
+		
 		
 	}
-}
 	
+	private static class ClosestPacman{
+		private double bestTime;
+		private Packman bestPackman;
+		
+		public ClosestPacman(double bestTime, Packman bestPackman) {
+			this.bestTime = bestTime;
+			this.bestPackman = bestPackman;
+		}
+
+		
+	}
+	
+	public static ShortestPath shortest(map map, game game) {
+		double bestTime = 100000000;
+		fruits bestFruit = null;
+		Packman bestPacman = null;
+
+		for (fruits fruit : game.getfruits()) {  //run on the fruit array list
+			ClosestPacman pman = findClosestPacman(fruit, map, game);
+			double time = pman.bestTime;
+			Packman packman = pman.bestPackman;
+			if (time < bestTime) {
+				bestFruit = fruit;
+				bestPacman = packman;
+				bestTime = time;
+			}
+			if (bestTime == 0) {
+				break;
+			}
+		}
+		
+		return new ShortestPath(bestFruit, bestPacman, bestTime);
+	}
+	
+	private static ClosestPacman findClosestPacman(fruits fruit, map map, game game) {
+		
+		Point3D fruitPoint = fruit.getfruit_Points();
+		fruitPoint = map.GPStoPixels(fruitPoint);
+		double bestTime =100000000;
+		Packman bestPackman = null;
+		for (Packman packman : game.getPackman()) {
+			Point3D packmanPoint = packman.getPacman_Points();
+			packmanPoint = map.GPStoPixels(packmanPoint);
+			double time = (map.distancePixels(fruitPoint, packmanPoint) - packman.getRadius()) / packman.getSpeed_weight();
+			if (time < bestTime) {
+				bestPackman = packman;
+				bestTime = time;
+			}
+		}
+		return new ClosestPacman(bestTime, bestPackman);
+	}
+
+}

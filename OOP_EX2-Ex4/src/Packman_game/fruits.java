@@ -9,13 +9,13 @@ public class fruits {
 
 	private double speed_weight;
 	Point3D fruit_Points;
+	private int id;
 	
 	
 
 	public fruits(double speed_weight,Point3D fruit_Points) {
 		this.speed_weight = speed_weight;
-		this.fruit_Points = fruit_Points;
-	
+		this.fruit_Points = fruit_Points;	
 	}
 	
 	public fruits(Point3D fruit_Points) {
@@ -46,6 +46,13 @@ public class fruits {
 		this.speed_weight = speed_weight;
 	}
 	
-	
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 }
