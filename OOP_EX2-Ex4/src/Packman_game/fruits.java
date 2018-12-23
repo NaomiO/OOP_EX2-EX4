@@ -49,3 +49,42 @@ public class fruits {
 	
 	
 }
+
+
+//
+//public class fruits {
+//
+//	
+//	private double speed;
+//	private int id;
+//	Point3D fruit_Points;
+//	
+//
+//	public fruits(Point3D fruitCoords) {
+//
+//	this.fruitCoords=fruitCoords;
+//
+//	
+//	
+//	}
+//	/*setters and getters*/
+//
+//	
+//
+//	public Point3D getfruitCoords() {
+//		return fruitCoords;
+//	}
+//
+//	
+//
+//	public double getSpeed() {
+//		return this.speed;
+//	}
+//
+//	public int getId() {
+//		return this.id;
+//	}
+//	
+//	
+//	
+//}

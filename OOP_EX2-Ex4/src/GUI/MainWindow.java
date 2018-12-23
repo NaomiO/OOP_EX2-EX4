@@ -13,10 +13,8 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-
 import Geom.Point3D;
 import Packman_game.Packman;
 import Packman_game.fruits;
